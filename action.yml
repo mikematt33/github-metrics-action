@@ -1,24 +1,19 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
-
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+name: GitHub Metrics Action
+author: mikematt33
+description: A GitHub Action to collect and report metrics about a repository.
 branding:
-  icon: heart
-  color: red
+  icon: bar-chart
+  color: black
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  token:
+    description: 'GitHub token to access the repository.'
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: Your output description here
+  repository:
+    description: 'The repository to collect metrics from.'
+    required: false
+    default: '${{ github.repository }}'
 
 runs:
-  using: node24
-  main: dist/index.js
+  using: 'node20'
+  main: 'dist/index.js'

@@ -1,0 +1,14 @@
+name: Example usage of GitHub Metrics Action
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  collect-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          token: ${{ secrets.TOKEN }}
+          repository: ${{ github.repository }}
